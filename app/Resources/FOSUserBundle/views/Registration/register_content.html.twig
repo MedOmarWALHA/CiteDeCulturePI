@@ -1,0 +1,43 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<!-- inner banner -->
+<section class="inner-banner">
+    <div class="container">
+    </div>
+</section>
+<!-- //inner banner -->
+
+<!-- page details -->
+<div class="breadcrumb-agile mt-4">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="index.html">Home</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page"> Register</li>
+        </ol>
+    </div>
+</div>
+<!-- //page details -->
+
+<!-- login -->
+<section class="login py-5">
+    <div class="container">
+        <h3 class="heading mb-sm-5 mb-4 text-center">Créer un compte</h3>
+
+        <div class="login-form">
+            {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+
+            {{ form_widget(form) }}
+            <div class="row mt-3">
+                <div class="col-md-8 offset-md-4">
+                    <input class="btn" type="submit" value="{{ 'registration.submit'|trans }}" />
+                </div>
+            </div>
+            {{ form_end(form) }}
+        </div>
+
+    </div>
+</section>
+<!-- //login -->
+

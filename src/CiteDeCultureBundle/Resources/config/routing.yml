@@ -1,0 +1,6 @@
+cite_homepage:
+    path:     /
+    defaults: { _controller: CiteDeCultureBundle:Default:index }
+cite_registerpage:
+    path:     /back
+    defaults: { _controller: CiteDeCultureBundle:Default:back }
