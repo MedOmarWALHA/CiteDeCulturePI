@@ -1,6 +1,9 @@
 {%  extends 'front/base.html.twig' %}
 
 {% block content %}
+    {% if is_granted('ROLE_ADMIN') %}
+        <h1>Do something here</h1>
+    {%endif%}
     <hr>
 <!-- banner -->
 <section class="banner_w3lspvt">
