@@ -34,3 +34,6 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+    authentication.handler.login_success_handler:
+        class:  CiteDeCultureBundle\Security\LoginSuccessHandler
+        arguments:  ['@router', '@security.authorization_checker']
