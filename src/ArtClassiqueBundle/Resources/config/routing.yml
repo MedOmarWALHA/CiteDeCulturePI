@@ -1,3 +1,3 @@
-art_classique_homepage:
+art_classique_hompage:
     path:     /
     defaults: { _controller: ArtClassiqueBundle:Default:index }
