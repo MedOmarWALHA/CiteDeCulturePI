@@ -1,0 +1,24 @@
+foire_index:
+    path:     /
+    defaults: { _controller: "FoireBundle:Foire:index" }
+    methods:  GET
+
+foire_show:
+    path:     /{identifiant}/show
+    defaults: { _controller: "FoireBundle:Foire:show" }
+    methods:  GET
+
+foire_new:
+    path:     /new
+    defaults: { _controller: "FoireBundle:Foire:new" }
+    methods:  [GET, POST]
+
+foire_edit:
+    path:     /{identifiant}/edit
+    defaults: { _controller: "FoireBundle:Foire:edit" }
+    methods:  [GET, POST]
+
+foire_delete:
+    path:     /{identifiant}/delete
+    defaults: { _controller: "FoireBundle:Foire:delete" }
+    methods:  DELETE
