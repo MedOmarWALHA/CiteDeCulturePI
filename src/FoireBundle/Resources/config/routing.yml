@@ -1,0 +1,7 @@
+foire_foire:
+    resource: "@FoireBundle/Resources/config/routing/foire.yml"
+    prefix:   /foire
+
+foire_homepage:
+    path:     /
+    defaults: { _controller: FoireBundle:Default:index }

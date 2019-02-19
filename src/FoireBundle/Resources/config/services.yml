@@ -1,0 +1,4 @@
+services:
+#    foire.example:
+#        class: FoireBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
