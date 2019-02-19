@@ -1,6 +1,7 @@
-art_classique:
-    resource: "@ArtClassiqueBundle/Resources/config/routing.yml"
+foire:
+    resource: "@FoireBundle/Resources/config/routing.yml"
     prefix:   /
+
 
 citedeculture:
     resource: "@CiteDeCultureBundle/Resources/config/routing.yml"
