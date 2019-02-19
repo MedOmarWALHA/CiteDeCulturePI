@@ -1,0 +1,3 @@
+art_classique_homepage:
+    path:     /
+    defaults: { _controller: ArtClassiqueBundle:Default:index }
