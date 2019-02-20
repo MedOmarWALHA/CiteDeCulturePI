@@ -1,0 +1,31 @@
+<h1>Liste des Foires</h1>
+<table border="2">
+    <tr>
+        <th>Identifiant</th>
+        <th>Nomfoire</th>
+        <th>Datedebut</th>
+        <th>Datefin</th>
+        <th>Nombredestand</th>
+        <th>Prixdustand</th>
+        <th>Action</th>
+
+    </tr>
+    {% for Stand in stand %}
+        <tr>
+            <td><a href="{{ path('foire_show', { 'identifiant': Stand.identifiant }) }}">{{ Stand.identifiant }}</a></td>
+            <td>{{ Stand.NomFoire }}</td>
+            <td>{% if Stand.DateDebut %}{{ Stand.DateDebut|date('Y-m-d') }}{% endif %}</td>
+            <td>{% if Stand.DateFin %}{{ Stand.DateFin|date('Y-m-d') }}{% endif %}</td>
+            <td>{{ Stand.NombreDeStand }}</td>
+            <td>{{ Stand.PrixDuStand }}</td>
+            <td>
+                <ul>
+
+                        <input type="submit" value="Edit" />
+
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+
+</table>

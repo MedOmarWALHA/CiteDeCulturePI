@@ -12,6 +12,11 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class StandController extends Controller
 {
-    
+    public function listeStandAction()
+    {
+        $em= $this->getDoctrine()->getManager();
+        $Stand=$em->getRepository("FoireBundle:Foire")->findAll();
+        return $this->render('@Foire\Stand\Afficher.html.twig',array("stand"=>$Stand));
+    }
 
 }

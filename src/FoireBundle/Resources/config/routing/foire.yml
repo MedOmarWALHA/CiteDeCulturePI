@@ -22,3 +22,7 @@ foire_delete:
     path:     /{identifiant}/delete
     defaults: { _controller: "FoireBundle:Foire:delete" }
     methods:  DELETE
+
+stand_afficher:
+    path:     /afficher
+    defaults: { _controller: FoireBundle:Stand:listeStand }
