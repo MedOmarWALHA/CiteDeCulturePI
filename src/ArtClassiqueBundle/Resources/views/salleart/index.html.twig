@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Sallearts list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Capaciter</th>
+                <th>Type</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for salleArt in salleArts %}
+            <tr>
+                <td><a href="{{ path('salleart_show', { 'id': salleArt.id }) }}">{{ salleArt.id }}</a></td>
+                <td>{{ salleArt.nom }}</td>
+                <td>{{ salleArt.capaciter }}</td>
+                <td>{{ salleArt.type }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('salleart_show', { 'id': salleArt.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('salleart_edit', { 'id': salleArt.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('salleart_new') }}">Create a new salleArt</a>
+        </li>
+    </ul>
+{% endblock %}
