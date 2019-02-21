@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="SalleArt")
+ * @ORM\Table(name="Salle_Art")
  */
 class SalleArt
 {
