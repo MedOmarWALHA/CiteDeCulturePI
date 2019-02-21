@@ -1,7 +1,18 @@
 art_classique_salleart:
     resource: "@ArtClassiqueBundle/Resources/config/routing/salleart.yml"
     prefix:   /administration/salleart
-
+art_classique_artiste:
+    resource: "@ArtClassiqueBundle/Resources/config/routing/artiste.yml"
+    prefix:   /administration/artiste
+art_classique_groupe:
+    resource: "@ArtClassiqueBundle/Resources/config/routing/groupeartistes.yml"
+    prefix:   /administration/groupe
+art_classique_reservation_salle:
+    resource: "@ArtClassiqueBundle/Resources/config/routing/reservationsalle.yml"
+    prefix:   /salle/reservation
+art_classique_abonnement:
+    resource: "@ArtClassiqueBundle/Resources/config/routing/abonnement.yml"
+    prefix:   /abonnement
 art_classique_homepage:
     path:     /
     defaults: { _controller: ArtClassiqueBundle:Default:index }

@@ -2,20 +2,19 @@
 /**
  * Created by PhpStorm.
  * User: I.O.I
- * Date: 2/19/2019
- * Time: 3:48 PM
+ * Date: 2/21/2019
+ * Time: 6:40 PM
  */
 
 namespace ArtClassiqueBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-
 /**
  * @ORM\Entity
- * @ORM\Table(name="Artiste")
+ * @ORM\Table(name="Reservation_Salle")
  */
-class Artiste
+class ReservationSalle
 {
     /**
      * @var int
@@ -28,16 +27,15 @@ class Artiste
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=255)
+     * @ORM\Column(name="type_spectacle", type="string", length=255)
      */
-    private $nom;
+    private $typeSpectacle;
     /**
-     * @var string
+     * @ORM\ManyToOne(targetEntity="ArtClassiqueBundle\Entity\SalleArt")
+     * @ORM\JoinColumn(name="id_salle", referencedColumnName="id")
      *
-     * @ORM\Column(name="prenom", type="string", length=255)
      */
-    private $prenom;
-
+    private $SalleArt;
     /**
      * @ORM\ManyToOne(targetEntity="ArtClassiqueBundle\Entity\GroupeArtistes")
      * @ORM\JoinColumn(name="id_groupe", referencedColumnName="id")
@@ -64,33 +62,33 @@ class Artiste
     /**
      * @return string
      */
-    public function getNom()
+    public function getTypeSpectacle()
     {
-        return $this->nom;
+        return $this->typeSpectacle;
     }
 
     /**
-     * @param string $nom
+     * @param string $typeSpectacle
      */
-    public function setNom($nom)
+    public function setTypeSpectacle($typeSpectacle)
     {
-        $this->nom = $nom;
+        $this->typeSpectacle = $typeSpectacle;
     }
 
     /**
-     * @return string
+     * @return mixed
      */
-    public function getPrenom()
+    public function getSalleArt()
     {
-        return $this->prenom;
+        return $this->SalleArt;
     }
 
     /**
-     * @param string $prenom
+     * @param mixed $SalleArt
      */
-    public function setPrenom($prenom)
+    public function setSalleArt($SalleArt)
     {
-        $this->prenom = $prenom;
+        $this->SalleArt = $SalleArt;
     }
 
     /**
@@ -107,13 +105,6 @@ class Artiste
     public function setGroupe($groupe)
     {
         $this->groupe = $groupe;
-    }
-
-    public function __toString(){
-        // to show the name of the Category in the select
-        return $this->nom;
-        // to show the id of the Category in the select
-        // return $this->id;
     }
 
 }

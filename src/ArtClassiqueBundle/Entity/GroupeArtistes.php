@@ -2,20 +2,19 @@
 /**
  * Created by PhpStorm.
  * User: I.O.I
- * Date: 2/19/2019
- * Time: 3:48 PM
+ * Date: 2/21/2019
+ * Time: 7:21 PM
  */
 
 namespace ArtClassiqueBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-
 /**
  * @ORM\Entity
- * @ORM\Table(name="Salle_Art")
+ * @ORM\Table(name="Groupe_Artistes")
  */
-class SalleArt
+class GroupeArtistes
 {
     /**
      * @var int
@@ -32,17 +31,17 @@ class SalleArt
      */
     private $nom;
     /**
-     * @var int
-     *
-     * @ORM\Column(name="capaciter", type="integer")
-     */
-    private $capaciter;
-    /**
      * @var string
      *
      * @ORM\Column(name="type", type="string", length=255)
      */
     private $type;
+    /**
+     * @ORM\OneToOne(targetEntity="ArtClassiqueBundle\Entity\Artiste")
+     * @ORM\JoinColumn(name="id_chef_groupe", referencedColumnName="id")
+     *
+     */
+    private $chefGroupe;
 
     /**
      * @return int
@@ -77,22 +76,6 @@ class SalleArt
     }
 
     /**
-     * @return int
-     */
-    public function getCapaciter()
-    {
-        return $this->capaciter;
-    }
-
-    /**
-     * @param int $capaciter
-     */
-    public function setCapaciter($capaciter)
-    {
-        $this->capaciter = $capaciter;
-    }
-
-    /**
      * @return string
      */
     public function getType()
@@ -108,6 +91,22 @@ class SalleArt
         $this->type = $type;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getChefGroupe()
+    {
+        return $this->chefGroupe;
+    }
+
+    /**
+     * @param mixed $chefGroupe
+     */
+    public function setChefGroupe($chefGroupe)
+    {
+        $this->chefGroupe = $chefGroupe;
+    }
+
 
     public function __toString(){
         // to show the name of the Category in the select
@@ -115,5 +114,4 @@ class SalleArt
         // to show the id of the Category in the select
         // return $this->id;
     }
-
 }

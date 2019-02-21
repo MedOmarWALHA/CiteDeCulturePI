@@ -5,6 +5,7 @@ namespace ArtClassiqueBundle\Controller;
 use ArtClassiqueBundle\Entity\SalleArt;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * Salleart controller.
@@ -32,6 +33,8 @@ class SalleArtController extends Controller
     /**
      * Creates a new salleArt entity.
      *
+     * @IsGranted("ROLE_ADMIN")
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function newAction(Request $request)
     {
@@ -56,6 +59,8 @@ class SalleArtController extends Controller
     /**
      * Finds and displays a salleArt entity.
      *
+     * @IsGranted("ROLE_ADMIN")
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function showAction(SalleArt $salleArt)
     {
@@ -70,6 +75,8 @@ class SalleArtController extends Controller
     /**
      * Displays a form to edit an existing salleArt entity.
      *
+     * @IsGranted("ROLE_ADMIN")
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function editAction(Request $request, SalleArt $salleArt)
     {
@@ -93,6 +100,8 @@ class SalleArtController extends Controller
     /**
      * Deletes a salleArt entity.
      *
+     * @IsGranted("ROLE_ADMIN")
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function deleteAction(Request $request, SalleArt $salleArt)
     {
