@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="Salle_Art")
+ * @ORM\Table(name="SalleArt")
  */
 class SalleArt
 {
@@ -34,13 +34,13 @@ class SalleArt
     /**
      * @var int
      *
-     * @ORM\Column(name="nom", type="integer")
+     * @ORM\Column(name="capaciter", type="integer")
      */
-    private $capacite;
+    private $capaciter;
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=255)
+     * @ORM\Column(name="type", type="string", length=255)
      */
     private $type;
 
@@ -79,17 +79,17 @@ class SalleArt
     /**
      * @return int
      */
-    public function getCapacite()
+    public function getCapaciter()
     {
-        return $this->capacite;
+        return $this->capaciter;
     }
 
     /**
-     * @param int $capacite
+     * @param int $capaciter
      */
-    public function setCapacite($capacite)
+    public function setCapaciter($capaciter)
     {
-        $this->capacite = $capacite;
+        $this->capaciter = $capaciter;
     }
 
     /**
@@ -108,8 +108,5 @@ class SalleArt
         $this->type = $type;
     }
 
-    /**
-     * @return string
-     */
 
 }
