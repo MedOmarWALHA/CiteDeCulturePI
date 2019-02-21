@@ -15,6 +15,8 @@ class SalleArtController extends Controller
     /**
      * Lists all salleArt entities.
      *
+     * @IsGranted("ROLE_ADMIN")
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function indexAction()
     {
