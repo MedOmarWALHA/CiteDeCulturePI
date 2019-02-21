@@ -1,3 +1,7 @@
+art_classique:
+    resource: "@ArtClassiqueBundle/Resources/config/routing.yml"
+    prefix:   /
+
 foire:
     resource: "@FoireBundle/Resources/config/routing.yml"
     prefix:   /

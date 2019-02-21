@@ -1,3 +1,7 @@
+art_classique_salleart:
+    resource: "@ArtClassiqueBundle/Resources/config/routing/salleart.yml"
+    prefix:   /salleart
+
 art_classique_homepage:
     path:     /
     defaults: { _controller: ArtClassiqueBundle:Default:index }
