@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Reservationsalles list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Typespectacle</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reservationSalle in reservationSalles %}
+            <tr>
+                <td><a href="{{ path('salle_reservation_show', { 'id': reservationSalle.id }) }}">{{ reservationSalle.id }}</a></td>
+                <td>{{ reservationSalle.typeSpectacle }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('salle_reservation_show', { 'id': reservationSalle.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('salle_reservation_edit', { 'id': reservationSalle.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('salle_reservation_new') }}">Create a new reservationSalle</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -2,20 +2,19 @@
 /**
  * Created by PhpStorm.
  * User: I.O.I
- * Date: 2/19/2019
- * Time: 3:48 PM
+ * Date: 2/21/2019
+ * Time: 7:21 PM
  */
 
 namespace ArtClassiqueBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-
 /**
  * @ORM\Entity
- * @ORM\Table(name="Artiste")
+ * @ORM\Table(name="Groupe_Artistes")
  */
-class Artiste
+class GroupeArtistes
 {
     /**
      * @var int
@@ -34,16 +33,15 @@ class Artiste
     /**
      * @var string
      *
-     * @ORM\Column(name="prenom", type="string", length=255)
+     * @ORM\Column(name="type", type="string", length=255)
      */
-    private $prenom;
-
+    private $type;
     /**
-     * @ORM\ManyToOne(targetEntity="ArtClassiqueBundle\Entity\GroupeArtistes")
-     * @ORM\JoinColumn(name="id_groupe", referencedColumnName="id")
+     * @ORM\OneToOne(targetEntity="ArtClassiqueBundle\Entity\Artiste")
+     * @ORM\JoinColumn(name="id_chef_groupe", referencedColumnName="id")
      *
      */
-    private $groupe;
+    private $chefGroupe;
 
     /**
      * @return int
@@ -80,34 +78,35 @@ class Artiste
     /**
      * @return string
      */
-    public function getPrenom()
+    public function getType()
     {
-        return $this->prenom;
+        return $this->type;
     }
 
     /**
-     * @param string $prenom
+     * @param string $type
      */
-    public function setPrenom($prenom)
+    public function setType($type)
     {
-        $this->prenom = $prenom;
+        $this->type = $type;
     }
 
     /**
      * @return mixed
      */
-    public function getGroupe()
+    public function getChefGroupe()
     {
-        return $this->groupe;
+        return $this->chefGroupe;
     }
 
     /**
-     * @param mixed $groupe
+     * @param mixed $chefGroupe
      */
-    public function setGroupe($groupe)
+    public function setChefGroupe($chefGroupe)
     {
-        $this->groupe = $groupe;
+        $this->chefGroupe = $chefGroupe;
     }
+
 
     public function __toString(){
         // to show the name of the Category in the select
@@ -115,5 +114,4 @@ class Artiste
         // to show the id of the Category in the select
         // return $this->id;
     }
-
 }

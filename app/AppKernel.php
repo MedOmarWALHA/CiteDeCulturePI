@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new CiteDeCultureBundle\CiteDeCultureBundle(),
             new FoireBundle\FoireBundle(),
+            new ArtClassiqueBundle\ArtClassiqueBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

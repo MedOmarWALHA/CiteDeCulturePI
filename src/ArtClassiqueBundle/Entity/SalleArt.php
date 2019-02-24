@@ -13,9 +13,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="Artiste")
+ * @ORM\Table(name="Salle_Art")
  */
-class Artiste
+class SalleArt
 {
     /**
      * @var int
@@ -32,18 +32,17 @@ class Artiste
      */
     private $nom;
     /**
+     * @var int
+     *
+     * @ORM\Column(name="capaciter", type="integer")
+     */
+    private $capaciter;
+    /**
      * @var string
      *
-     * @ORM\Column(name="prenom", type="string", length=255)
+     * @ORM\Column(name="type", type="string", length=255)
      */
-    private $prenom;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="ArtClassiqueBundle\Entity\GroupeArtistes")
-     * @ORM\JoinColumn(name="id_groupe", referencedColumnName="id")
-     *
-     */
-    private $groupe;
+    private $type;
 
     /**
      * @return int
@@ -78,36 +77,37 @@ class Artiste
     }
 
     /**
+     * @return int
+     */
+    public function getCapaciter()
+    {
+        return $this->capaciter;
+    }
+
+    /**
+     * @param int $capaciter
+     */
+    public function setCapaciter($capaciter)
+    {
+        $this->capaciter = $capaciter;
+    }
+
+    /**
      * @return string
      */
-    public function getPrenom()
+    public function getType()
     {
-        return $this->prenom;
+        return $this->type;
     }
 
     /**
-     * @param string $prenom
+     * @param string $type
      */
-    public function setPrenom($prenom)
+    public function setType($type)
     {
-        $this->prenom = $prenom;
+        $this->type = $type;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getGroupe()
-    {
-        return $this->groupe;
-    }
-
-    /**
-     * @param mixed $groupe
-     */
-    public function setGroupe($groupe)
-    {
-        $this->groupe = $groupe;
-    }
 
     public function __toString(){
         // to show the name of the Category in the select

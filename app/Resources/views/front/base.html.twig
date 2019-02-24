@@ -36,8 +36,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="container">
         <!-- nav -->
         <div class="top d-md-flex">
-            <div id="logo">
-                <h1> <a href="index"><span class="fa fa-meetup"></span> Furnish</a></h1>
+            <div class="col-lg-3">
+                <img src="{{ asset('Bundles/resources/front/images/logo2.png') }}" class="img-fluid" alt="" />
             </div>
             <div class="search-form mx-md-auto">
                 <div class="n-right-w3ls">
@@ -58,12 +58,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <a href="{{ path('fos_user_registration_register') }}" class="btn"><span class="fa fa-pencil-square-o"></span>Créer un compte</a>
                 {% endif %}
             </div>
+            <div class="col-lg-1">
+                <img src="{{ asset('Bundles/resources/front/images/logo_cite.png') }}" class="img-fluid" alt="" />
+            </div>
         </div>
         <nav class="text-center">
             <label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
             <input type="checkbox" id="drop" />
             <ul class="menu">
-                <li class="mr-lg-4 mr-2 active"><a href="index">Home</a></li>
+                <li class="mr-lg-4 mr-2 active"><a href="{{ path('cite_homepage') }}">Accueil</a></li>
                 <li class="mr-lg-4 mr-2"><a href="about">About Us</a></li>
                 <li class="mr-lg-4 mr-2"><a href="services">Services</a></li>
                 <li class="mr-lg-4 mr-2"><a href="{{ path('stand_afficher') }}">Foire</a></li>
