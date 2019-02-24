@@ -23,48 +23,37 @@ use Doctrine\ORM\Mapping as ORM;
 class Stand
 {
     /**
-     * @ORM\GeneratedValue
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
-
     private $numerostand;
 
     /**
-     * @ORM\Column(type="string")
+     * @var string
+     *
+     * @ORM\Column(name="etatde_reponse", type="string", length=255)
      */
-
     private $EtatdeReponse;
 
     /**
-     * @return mixed
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     *
      */
-    public function getEtatdeReponse()
-    {
-        return $this->EtatdeReponse;
-    }
+    private $user;
 
     /**
-     * @param mixed $EtatdeReponse
+     * @ORM\ManyToOne(targetEntity="FoireBundle\Entity\Foire")
+     * @ORM\JoinColumn(name="foire_id", referencedColumnName="id")
+     *
      */
-    public function setEtatdeReponse($EtatdeReponse)
-    {
-        $this->EtatdeReponse = $EtatdeReponse;
-    }
-
-
+    private $foire;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Foire")
-     * @ORM\JoinColumn(name="foire_id" ,referencedColumnName="identifiant")
-     */
-
-    private $id;
-
-
-
-    /**
-     * @return mixed
+     * @return int
      */
     public function getNumerostand()
     {
@@ -72,17 +61,7 @@ class Stand
     }
 
     /**
-     * @return mixed
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-
-
-    /**
-     * @param mixed $numerostand
+     * @param int $numerostand
      */
     public function setNumerostand($numerostand)
     {
@@ -90,19 +69,52 @@ class Stand
     }
 
     /**
-     * @param mixed $id
+     * @return string
      */
-    public function setId($id)
+    public function getEtatdeReponse()
     {
-        $this->id = $id;
+        return $this->EtatdeReponse;
     }
 
+    /**
+     * @param string $EtatdeReponse
+     */
+    public function setEtatdeReponse($EtatdeReponse)
+    {
+        $this->EtatdeReponse = $EtatdeReponse;
+    }
 
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
 
+    /**
+     * @param mixed $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
 
+    /**
+     * @return mixed
+     */
+    public function getFoire()
+    {
+        return $this->foire;
+    }
 
-
-
+    /**
+     * @param mixed $foire
+     */
+    public function setFoire($foire)
+    {
+        $this->foire = $foire;
+    }
 
 
 }

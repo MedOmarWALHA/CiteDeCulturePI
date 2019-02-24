@@ -26,3 +26,16 @@ foire_delete:
 stand_afficher:
     path:     /afficher
     defaults: { _controller: FoireBundle:Stand:listeStand }
+
+
+
+
+stand_Demande:
+    path:     /Demande
+    defaults: { _controller: FoireBundle:Stand:listeStandDemande }
+
+stand_louer:
+    path: /{id}/louer
+    defaults: { _controller: FoireBundle:Stand:louerStand }
+    methods:  GET
+

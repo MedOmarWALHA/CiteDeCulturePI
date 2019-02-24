@@ -1,9 +1,9 @@
-{% extends 'base.html.twig' %}
+{%  extends 'back/base.html.twig' %}
 
-{% block body %}
+{% block content %}
     <h1>Foires list</h1>
-
-    <table>
+<center>
+    <table border="20">
         <thead>
             <tr>
                 <th>Identifiant</th>
@@ -44,4 +44,5 @@
             <a href="{{ path('foire_new') }}">Create a new foire</a>
         </li>
     </ul>
+</center>
 {% endblock %}
