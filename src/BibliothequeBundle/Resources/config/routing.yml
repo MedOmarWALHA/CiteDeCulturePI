@@ -1,0 +1,42 @@
+bibliotheque_auteur:
+    resource: "@BibliothequeBundle/Resources/config/routing/auteur.yml"
+    prefix:   /auteur
+
+bibliotheque_homepage:
+    path:     /
+    defaults: { _controller: BibliothequeBundle:Default:index }
+
+bibliotheque_dommaine:
+    resource: "@BibliothequeBundle/Resources/config/routing/dommaine.yml"
+    prefix:   /dommaine
+
+bibliotheque_emprunt:
+    resource: "@BibliothequeBundle/Resources/config/routing/emprunt.yml"
+    prefix:   /emprunt
+
+bibliotheque_livre:
+    resource: "@BibliothequeBundle/Resources/config/routing/livre.yml"
+    prefix:   /livre
+
+livre_index2:
+    path:     /liv
+    defaults: { _controller: BibliothequeBundle:livre:index2 }
+    methods:  GET
+
+show_front:
+    path:     /{id}/show_front
+    defaults: { _controller: BibliothequeBundle:livre:showfront }
+    methods:  GET
+
+livre_supprimer:
+    path:     /{id}/supprimer
+    defaults: { _controller: "BibliothequeBundle:livre:supprimer" }
+
+emprunt_new2:
+    path:     /{id}/emprunt
+    defaults: { _controller: BibliothequeBundle:emprunt:emprunt }
+    methods:  GET
+
+_graphePie:
+    path: /pie
+    defaults: { _controller: BibliothequeBundle:Defalut:index2}

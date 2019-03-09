@@ -1,0 +1,55 @@
+{% extends 'front/base.html.twig' %}
+
+{% block content %}
+    <center>
+    <h1>liste des livres</h1>
+
+    <table border="1">
+        <thead>
+            <tr><th>Image</th>
+                <th>fichier</th>
+                <th>Titre</th>
+                <th>Langue</th>
+
+                <th>Nombre de page</th>
+                <th>Date de parution</th>
+                <th>Nombre image</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for livre in livres %}
+            <tr><tr> <td><img src="{{ asset('uploads/images/' ~ livre.ProfilePictureFile) }}" alt="" /> </td>
+                <td>{{ livre.image }}</td>
+                <td>{{ livre.titre }}</td>
+                <td>{{ livre.langue }}</td>
+                <td>{{ livre.nombrepage }}</td>
+                <td>{% if livre.dateparution %}{{ livre.dateparution|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ livre.nombreimage }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('show_front', { 'id': livre.id }) }}">afficher</a>
+                        </li>
+                        {% set a =0 %}
+                        {% for emprunt in emprunt if a==0 %}
+                        {% if emprunt.livre.id == livre.id %}
+                        {% if emprunt.rendu == 0 %}
+                        <h3 style="color:#ca2819">livre non disponible</h3>
+                            {% set a=1 %}
+                        {% endif %}
+                        {% endif %}
+                        {% endfor %}
+                        {% if a==0 %}
+
+                            <form method="post"><a href="{{ path('emprunt_new2',{ 'id': livre.id } ) }}">emprunter</a> <input type="date" name="f1" > </form>
+                        {% endif %}
+
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+        </center>
+{% endblock %}

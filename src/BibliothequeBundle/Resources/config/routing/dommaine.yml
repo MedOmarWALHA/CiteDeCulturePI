@@ -1,0 +1,24 @@
+dommaine_index:
+    path:     /
+    defaults: { _controller: "BibliothequeBundle:dommaine:index" }
+    methods:  GET
+
+dommaine_show:
+    path:     /{id}/show
+    defaults: { _controller: "BibliothequeBundle:dommaine:show" }
+    methods:  GET
+
+dommaine_new:
+    path:     /new
+    defaults: { _controller: "BibliothequeBundle:dommaine:new" }
+    methods:  [GET, POST]
+
+dommaine_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "BibliothequeBundle:dommaine:edit" }
+    methods:  [GET, POST]
+
+dommaine_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "BibliothequeBundle:dommaine:delete" }
+    methods:  DELETE

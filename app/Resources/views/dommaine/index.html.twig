@@ -1,0 +1,39 @@
+{% extends 'back/base.html.twig' %}
+
+{% block content %}
+    <center>
+    <h1>Les dommaines des livres</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+
+                <th>Libelle</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for dommaine in dommaines %}
+            <tr>
+                <td>{{ dommaine.libelle }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('dommaine_show', { 'id': dommaine.id }) }}">afficher</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('dommaine_edit', { 'id': dommaine.id }) }}">modifier</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('dommaine_new') }}">Créer un nouveau dommaine</a>
+        </li>
+    </ul>
+    </center>
+{% endblock %}

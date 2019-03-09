@@ -1,0 +1,43 @@
+{% extends 'back/base.html.twig' %}
+
+{% block content %}
+    <center>
+    <h1>Auteur</h1>
+
+    <table border="">
+        <tbody>
+
+            <tr>
+                <th>Nom</th>
+                <td>{{ auteur.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ auteur.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Date de naissance</th>
+                <td>{% if auteur.datenaissance %}{{ auteur.datenaissance|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Nationalite</th>
+                <td>{{ auteur.nationalite }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('auteur_index') }}">retour</a>
+        </li>
+        <li>
+            <a href="{{ path('auteur_edit', { 'id': auteur.id }) }}">modifier</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="supprimer">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+    </center>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Dommaines list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Libelle</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for dommaine in dommaines %}
+            <tr>
+                <td><a href="{{ path('dommaine_show', { 'id': dommaine.id }) }}">{{ dommaine.id }}</a></td>
+                <td>{{ dommaine.libelle }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('dommaine_show', { 'id': dommaine.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('dommaine_edit', { 'id': dommaine.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('dommaine_new') }}">Create a new dommaine</a>
+        </li>
+    </ul>
+{% endblock %}

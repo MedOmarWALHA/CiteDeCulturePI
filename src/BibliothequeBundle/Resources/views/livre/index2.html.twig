@@ -1,0 +1,44 @@
+{% extends 'front/base.html.twig' %}
+
+{% block content %}
+    <center>
+    <h1>liste des livres</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>fichier</th>
+                <th>Titre</th>
+                <th>Langue</th>
+
+                <th>Nombre de page</th>
+                <th>Date de parution</th>
+                <th>Nombre exemplaire</th>
+                <th>Nombre image</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for livre in livres %}
+            <tr>
+                <td>{{ livre.image }}</td>
+                <td>{{ livre.titre }}</td>
+                <td>{{ livre.langue }}</td>
+                <td>{{ livre.nombrepage }}</td>
+                <td>{% if livre.dateparution %}{{ livre.dateparution|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ livre.nombreexemplaire }}</td>
+                <td>{{ livre.nombreimage }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('show_front', { 'id': livre.id }) }}">afficher</a>
+                        </li>
+                    </ul>
+                        <form method="get"> <a href="{{ path('emprunt_new2', { 'id': livre.id }) }}"> emprunter</a> date fin   <input type="date" name="f1" > </form>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+        </center>
+{% endblock %}

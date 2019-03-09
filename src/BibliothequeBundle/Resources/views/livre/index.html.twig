@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Livres list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Langue</th>
+                <th>Annee</th>
+                <th>Nombrepage</th>
+                <th>Dateparution</th>
+                <th>Nombreexemplaire</th>
+                <th>Nombreimage</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for livre in livres %}
+            <tr>
+                <td><a href="{{ path('livre_show', { 'id': livre.id }) }}">{{ livre.id }}</a></td>
+                <td>{{ livre.titre }}</td>
+                <td>{{ livre.langue }}</td>
+                <td>{% if livre.annee %}{{ livre.annee|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ livre.nombrepage }}</td>
+                <td>{% if livre.dateparution %}{{ livre.dateparution|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ livre.nombreexemplaire }}</td>
+                <td>{{ livre.nombreimage }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('livre_show', { 'id': livre.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('livre_edit', { 'id': livre.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('livre_new') }}">Create a new livre</a>
+        </li>
+    </ul>
+{% endblock %}

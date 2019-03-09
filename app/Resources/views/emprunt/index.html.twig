@@ -1,0 +1,28 @@
+{% extends 'back/base.html.twig' %}
+
+{% block content %}
+    <center>
+    <h1>Liste des empruntes</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+
+                <th>Datedebut</th>
+                <th>Datefin</th>
+                <th>Rendu</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for emprunt in emprunts %}
+            <tr>
+
+                <td>{% if emprunt.datedebut %}{{ emprunt.datedebut|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if emprunt.datefin %}{{ emprunt.datefin|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if emprunt.rendu %}Yes{% else %}No{% endif %}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </center>
+{% endblock %}

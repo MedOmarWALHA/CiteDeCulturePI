@@ -1,0 +1,18 @@
+{% extends 'back/base.html.twig' %}
+
+{% block content %}
+    <center>
+    <h1>Création de Dommaine </h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="ajouter" />
+    {{ form_end(form) }}
+    </center>
+    <ul>
+        <li>
+            <a href="{{ path('dommaine_index') }}">Retour</a>
+        </li>
+    </ul>
+
+{% endblock %}

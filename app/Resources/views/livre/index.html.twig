@@ -1,0 +1,54 @@
+{% extends 'back/base.html.twig' %}
+
+{% block content %}
+    <center>
+    <h1>liste des livres</h1>
+    <table border="1">
+        <thead>
+            <tr> <th>Image</th>
+                <th>fichier</th>
+                <th>Titre</th>
+                <th>Langue</th>
+
+                <th>Nombre de page</th>
+                <th>Date de parution</th>
+                <th>Nombre exemplaire</th>
+                <th>Nombre image</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for livre in livres %}
+            <tr> <td><img src="{{ asset('uploads/images/' ~ livre.ProfilePictureFile) }}" alt="" /> </td>
+                <td>{{ livre.image }}</td>
+                <td>{{ livre.titre }}</td>
+                <td>{{ livre.langue }}</td>
+                <td>{{ livre.nombrepage }}</td>
+                <td>{% if livre.dateparution %}{{ livre.dateparution|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ livre.nombreexemplaire }}</td>
+                <td>{{ livre.nombreimage }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('livre_show', { 'id': livre.id }) }}">afficher</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('livre_edit', { 'id': livre.id }) }}">modifier</a>
+                        </li>
+                        <li>
+                        <a href="{{ path('livre_supprimer', { 'id': livre.id }) }}">supprimer</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('livre_new') }}">Ajouter un livre</a>
+        </li>
+    </ul>
+    </center>
+{% endblock %}

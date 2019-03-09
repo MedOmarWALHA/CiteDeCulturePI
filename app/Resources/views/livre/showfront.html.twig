@@ -1,0 +1,47 @@
+{% extends 'front/base.html.twig' %}
+
+{% block content %}
+    <center>
+    <h1 style=color:#0000F0>Livre {{ livre.titre }}</h1>
+
+
+    <table border="1">
+        <tbody>
+        <tr>
+        <th>Image</th>
+        <td><img src="{{ asset('uploads/images/' ~ livre.ProfilePictureFile) }}" alt="" /> </td>
+        </tr>
+            <tr>
+                <th>type</th>
+                <td>{{ livre.image }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ livre.titre }}</td>
+            </tr>
+            <tr>
+                <th>Langue</th>
+                <td>{{ livre.langue }}</td>
+            </tr>
+            <tr>
+                <th>Nombrepage</th>
+                <td>{{ livre.nombrepage }}</td>
+            </tr>
+            <tr>
+                <th>Dateparution</th>
+                <td>{% if livre.dateparution %}{{ livre.dateparution|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Nombreimage</th>
+                <td>{{ livre.nombreimage }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('livre_index2') }}">retour</a>
+        </li>
+    </ul>
+    </center>
+{% endblock %}

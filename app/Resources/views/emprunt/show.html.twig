@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Emprunt</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ emprunt.id }}</td>
+            </tr>
+            <tr>
+                <th>Datedebut</th>
+                <td>{% if emprunt.datedebut %}{{ emprunt.datedebut|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Datefin</th>
+                <td>{% if emprunt.datefin %}{{ emprunt.datefin|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Rendu</th>
+                <td>{% if emprunt.rendu %}Yes{% else %}No{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('emprunt_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('emprunt_edit', { 'id': emprunt.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,3 +1,7 @@
+bibliotheque:
+    resource: "@BibliothequeBundle/Resources/config/routing.yml"
+    prefix:   /bib
+
 citedeculture:
     resource: "@CiteDeCultureBundle/Resources/config/routing.yml"
     prefix:   /
