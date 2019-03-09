@@ -1,0 +1,24 @@
+salle_reservation_index:
+    path:     /
+    defaults: { _controller: "ArtClassiqueBundle:ReservationSalle:index" }
+    methods:  GET
+
+salle_reservation_show:
+    path:     /{id}/show
+    defaults: { _controller: "ArtClassiqueBundle:ReservationSalle:show" }
+    methods:  GET
+
+salle_reservation_new:
+    path:     /new
+    defaults: { _controller: "ArtClassiqueBundle:ReservationSalle:new" }
+    methods:  [GET, POST]
+
+salle_reservation_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ArtClassiqueBundle:ReservationSalle:edit" }
+    methods:  [GET, POST]
+
+salle_reservation_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ArtClassiqueBundle:ReservationSalle:delete" }
+    methods:  DELETE

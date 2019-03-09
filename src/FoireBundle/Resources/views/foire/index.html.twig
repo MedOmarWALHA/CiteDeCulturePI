@@ -1,0 +1,48 @@
+{%  extends 'back/base.html.twig' %}
+
+{% block content %}
+    <h1>Foires list</h1>
+<center>
+    <table border="20">
+        <thead>
+            <tr>
+                <th>Identifiant</th>
+                <th>Nomfoire</th>
+                <th>Datedebut</th>
+                <th>Datefin</th>
+                <th>Nombredestand</th>
+                <th>Prixdustand</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for foire in foires %}
+            <tr>
+                <td><a href="{{ path('foire_show', { 'identifiant': foire.identifiant }) }}">{{ foire.identifiant }}</a></td>
+                <td>{{ foire.NomFoire }}</td>
+                <td>{% if foire.DateDebut %}{{ foire.DateDebut|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if foire.DateFin %}{{ foire.DateFin|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ foire.NombreDeStand }}</td>
+                <td>{{ foire.PrixDuStand }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('foire_show', { 'identifiant': foire.identifiant }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('foire_edit', { 'identifiant': foire.identifiant }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('foire_new') }}">Create a new foire</a>
+        </li>
+    </ul>
+</center>
+{% endblock %}

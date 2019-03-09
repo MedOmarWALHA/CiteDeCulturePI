@@ -1,0 +1,24 @@
+salleart_index:
+    path:     /
+    defaults: { _controller: "ArtClassiqueBundle:SalleArt:index" }
+    methods:  GET
+
+salleart_show:
+    path:     /{id}/show
+    defaults: { _controller: "ArtClassiqueBundle:SalleArt:show" }
+    methods:  GET
+
+salleart_new:
+    path:     /new
+    defaults: { _controller: "ArtClassiqueBundle:SalleArt:new" }
+    methods:  [GET, POST]
+
+salleart_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ArtClassiqueBundle:SalleArt:edit" }
+    methods:  [GET, POST]
+
+salleart_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ArtClassiqueBundle:SalleArt:delete" }
+    methods:  DELETE

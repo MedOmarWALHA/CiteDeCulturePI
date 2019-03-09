@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Groupeartistes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Type</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for groupeArtiste in groupeArtistes %}
+            <tr>
+                <td><a href="{{ path('groupe_show', { 'id': groupeArtiste.id }) }}">{{ groupeArtiste.id }}</a></td>
+                <td>{{ groupeArtiste.nom }}</td>
+                <td>{{ groupeArtiste.type }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('groupe_show', { 'id': groupeArtiste.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('groupe_edit', { 'id': groupeArtiste.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('groupe_new') }}">Create a new groupeArtiste</a>
+        </li>
+    </ul>
+{% endblock %}

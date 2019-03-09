@@ -1,0 +1,40 @@
+{%  extends 'back/base.html.twig' %}
+
+
+
+{% block content %}
+
+<h1>Liste des Demande de location de Stand</h1>
+
+    <center>
+<table border="2">
+    <tr>
+        <th>Identifiant Du Stand</th>
+        <th>Etat de réponse</th>
+        <th>Id de la foire</th>
+
+
+        <th>Reponse</th>
+
+
+
+
+
+    </tr>
+    {% for Stand in stands %}
+        <tr>
+            <td>{{  Stand.numerostand }}</td>
+            <td>{{ Stand.EtatdeReponse }}</td>
+            <td>{{ Stand.idst }}</td>
+
+            <td><input type = "submit" href="" value="Accepter"></td>
+            <td><input type = "submit" href="" value="Refuser"></td>
+
+
+
+    {% endfor %}
+
+</table>
+
+    </center>
+{% endblock %}
